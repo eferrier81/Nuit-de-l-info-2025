@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audio Visualizer - Village Numérique Résistant</title>
+  <meta name="description" content="Visualisation audio rétro-fun basée sur la Web Audio API pour la Nuit de l'Info." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .visualizer-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at top, #183c2a 0, #020b08 45%, #000000 100%);
+      color: #f5f7f6;
+    }
+
+    .visualizer-header {
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1.25rem;
+      border-bottom: 1px solid rgba(176, 245, 201, 0.25);
+      background: linear-gradient(90deg, rgba(12, 53, 34, 0.9), rgba(4, 15, 10, 0.95));
+    }
+
+    .visualizer-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .visualizer-title span {
+      font-size: 1.2rem;
+    }
+
+    .visualizer-subtitle {
+      font-size: 0.8rem;
+      color: #cbd8d3;
+    }
+
+    .visualizer-controls {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .visualizer-btn,
+    .visualizer-file-label {
+      border-radius: 999px;
+      border: 1px solid rgba(176, 245, 201, 0.6);
+      background: rgba(5, 32, 20, 0.9);
+      color: #f5f7f6;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .visualizer-btn:hover,
+    .visualizer-btn:focus-visible,
+    .visualizer-file-label:hover,
+    .visualizer-file-label:focus-visible {
+      background: rgba(23, 94, 59, 0.95);
+    }
+
+    .visualizer-file-input {
+      display: none;
+    }
+
+    .visualizer-volume {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: #c7d4ce;
+    }
+
+    .visualizer-volume input[type="range"] {
+      width: 120px;
+      accent-color: #32c96b;
+    }
+
+    .visualizer-main {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    #visualizer-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: radial-gradient(circle at center, #020807 0, #000000 45%, #020807 100%);
+    }
+
+    .visualizer-message {
+      position: absolute;
+      inset: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .visualizer-message__title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+    }
+
+    .visualizer-message__text {
+      font-size: 0.95rem;
+      max-width: 32rem;
+      color: #d3e3dd;
+    }
+
+    .visualizer-footer {
+      padding: 0.4rem 1rem;
+      font-size: 0.7rem;
+      text-align: center;
+      color: #9fb2aa;
+      background: rgba(1, 5, 4, 0.9);
+      border-top: 1px solid rgba(176, 245, 201, 0.2);
+    }
+
+    .visualizer-footer a {
+      color: #7df1aa;
+      text-decoration: none;
+    }
+
+    .visualizer-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .visualizer-header {
+        padding: 0.6rem 0.8rem;
+      }
+
+      .visualizer-controls {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body class="visualizer-page">
+  <header class="visualizer-header" aria-label="Contrôles du visualiseur audio">
+    <div>
+      <div class="visualizer-title">
+        <span aria-hidden="true">🔊</span>
+        <span>Visualiseur Audio du Village Résistant</span>
+      </div>
+      <div class="visualizer-subtitle">Choisis un fichier audio et regarde le village vibrer.</div>
+    </div>
+
+    <div class="visualizer-controls">
+      <label class="visualizer-file-label" for="audio-file-input">
+        <span aria-hidden="true">📂</span>
+        <span>Choisir un fichier audio</span>
+        <input id="audio-file-input" class="visualizer-file-input" type="file" accept="audio/*" />
+      </label>
+
+      <button id="play-pause-btn" class="visualizer-btn" type="button" disabled>
+        ▶︎ Lecture
+      </button>
+
+      <div class="visualizer-volume">
+        <span aria-hidden="true">🔉</span>
+        <label for="volume-range" class="sr-only">Volume</label>
+        <input id="volume-range" type="range" min="0" max="1" step="0.01" value="0.8" />
+      </div>
+    </div>
+  </header>
+
+  <main class="visualizer-main" aria-label="Zone de visualisation audio">
+    <canvas id="visualizer-canvas"></canvas>
+    <div id="visualizer-message" class="visualizer-message">
+      <h1 class="visualizer-message__title">Choisis un fichier audio pour lancer la fête 🎧</h1>
+      <p class="visualizer-message__text">
+        Utilise le bouton <strong>"Choisir un fichier audio"</strong> au-dessus pour charger une piste (MP3, OGG, etc.).
+        Dès que la musique démarre, la visualisation se met à danser façon vieux lecteur multimédia.
+      </p>
+    </div>
+  </main>
+
+  <footer class="visualizer-footer">
+    Compatible avec la Web Audio API. Si rien ne s'affiche, ton navigateur a peut-être besoin d'une mise à jour.
+    Retour au <a href="index.html">Village Numérique Résistant</a>.
+  </footer>
+
+  <audio id="audio-element" crossorigin="anonymous"></audio>
+
+  <script>
+    (function () {
+      const audioEl = document.getElementById('audio-element');
+      const fileInput = document.getElementById('audio-file-input');
+      const playPauseBtn = document.getElementById('play-pause-btn');
+      const volumeRange = document.getElementById('volume-range');
+      const canvas = document.getElementById('visualizer-canvas');
+      const messageEl = document.getElementById('visualizer-message');
+
+      if (!window.AudioContext && !window.webkitAudioContext) {
+        messageEl.innerHTML = '<p class="visualizer-message__text">Ton navigateur ne supporte pas la Web Audio API. Essaie une version plus récente de Firefox ou Chrome.</p>';
+        return;
+      }
+
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const analyser = audioContext.createAnalyser();
+      analyser.fftSize = 2048;
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+
+      const source = audioContext.createMediaElementSource(audioEl);
+      const gainNode = audioContext.createGain();
+      source.connect(gainNode);
+      gainNode.connect(analyser);
+      analyser.connect(audioContext.destination);
+
+      let isPlaying = false;
+
+      function resizeCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        const { clientWidth, clientHeight } = canvas;
+        canvas.width = clientWidth * dpr;
+        canvas.height = clientHeight * dpr;
+        const ctx = canvas.getContext('2d');
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      const ctx = canvas.getContext('2d');
+
+      function draw() {
+        requestAnimationFrame(draw);
+        if (!isPlaying) {
+          // dessine un léger halo même à l'arrêt
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          return;
+        }
+
+        analyser.getByteFrequencyData(dataArray);
+
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.28)';
+        ctx.fillRect(0, 0, width, height);
+
+        const barCount = Math.floor(width / 8);
+        const step = Math.floor(bufferLength / barCount) || 1;
+        const barWidth = (width / barCount) * 0.8;
+
+        const centerY = height / 2;
+
+        for (let i = 0; i < barCount; i++) {
+          const dataIndex = i * step;
+          const value = dataArray[dataIndex] / 255; // 0..1
+          const barHeight = value * (height * 0.45);
+
+          const x = (i * width) / barCount;
+
+          const hue = 130 + value * 160; // vert -> rose
+          const glow = 0.2 + value * 0.6;
+
+          const gradient = ctx.createLinearGradient(x, centerY - barHeight, x, centerY + barHeight);
+          gradient.addColorStop(0, `rgba(176, 245, 201, ${glow})`);
+          gradient.addColorStop(0.5, `hsl(${hue}, 80%, 60%)`);
+          gradient.addColorStop(1, `rgba(50, 201, 107, ${glow})`);
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(x, centerY - barHeight, barWidth, barHeight * 2);
+        }
+
+        // Lignes de scan rétro
+        ctx.strokeStyle = 'rgba(50, 201, 107, 0.25)';
+        ctx.lineWidth = 1;
+        const lineCount = 18;
+        for (let j = 0; j < lineCount; j++) {
+          const y = (j * height) / lineCount;
+          ctx.beginPath();
+          ctx.moveTo(0, y + 0.5);
+          ctx.lineTo(width, y + 0.5);
+          ctx.stroke();
+        }
+      }
+
+      draw();
+
+      fileInput.addEventListener('change', (event) => {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+
+        const fileURL = URL.createObjectURL(file);
+        audioEl.src = fileURL;
+        audioEl.load();
+        messageEl.style.display = 'none';
+        playPauseBtn.disabled = false;
+        playPauseBtn.textContent = '▶︎ Lecture';
+        isPlaying = false;
+      });
+
+      playPauseBtn.addEventListener('click', async () => {
+        if (audioContext.state === 'suspended') {
+          await audioContext.resume();
+        }
+
+        if (audioEl.paused) {
+          audioEl.play();
+        } else {
+          audioEl.pause();
+        }
+      });
+
+      audioEl.addEventListener('play', () => {
+        isPlaying = true;
+        playPauseBtn.textContent = '⏸ Pause';
+      });
+
+      audioEl.addEventListener('pause', () => {
+        isPlaying = false;
+        playPauseBtn.textContent = '▶︎ Lecture';
+      });
+
+      audioEl.addEventListener('ended', () => {
+        isPlaying = false;
+        playPauseBtn.textContent = '▶︎ Lecture';
+      });
+
+      volumeRange.addEventListener('input', (event) => {
+        const value = parseFloat(event.target.value) || 0;
+        gainNode.gain.value = value;
+      });
+
+      gainNode.gain.value = parseFloat(volumeRange.value) || 0.8;
+    })();
+  </script>
+</body>
+</html>
