@@ -30,18 +30,22 @@ Chat'rlatan est un chatbot basé sur GPT-3.5 Turbo qui incarne un ancien Windows
 ## 🚀 Utilisation
 
 ### En ligne
+
 Visitez simplement [http://sedate-lawyer.surge.sh/test-chatbot.html](http://sedate-lawyer.surge.sh/test-chatbot.html)
 
 ### En local
 
 1. **Cloner le dépôt**
+
 ```powershell
 git clone https://github.com/eferrier81/Nuit-de-l-info-2025.git
 cd Nuit-de-l-info-2025/nird-village
 ```
 
 2. **Configuration**
+
 Créez un fichier `js/config.js` avec votre clé API OpenAI :
+
 ```javascript
 const CHATBOT_CONFIG = {
   OPENAI_API_KEY: 'votre-clé-api-ici',
@@ -54,6 +58,7 @@ const CHATBOT_CONFIG = {
 ```
 
 3. **Lancer un serveur local**
+
 ```powershell
 # Avec Python
 python -m http.server 8000
