@@ -8,7 +8,7 @@ l’utilisateur grâce à la **Web Audio API**.
 
 - Fichier : `nird-village/visualizer.html`
 - URL (GitHub Pages) typique :
-  - `https://eferrier81.github.io/Nuit-de-l-info-2025/visualizer.html`
+  - `https://eferrier81.github.io/Nuit-de-l-info-2025/nird-village/visualizer.html`
 - Depuis la page d’accueil `index.html`, un bouton **“Voir le Visualiseur Audio”** est disponible
   dans le bloc d’actions principal.
 
@@ -33,7 +33,7 @@ http://localhost:8000/visualizer.html
 Ouvrir directement :
 
 ```text
-https://eferrier81.github.io/Nuit-de-l-info-2025/visualizer.html
+https://eferrier81.github.io/Nuit-de-l-info-2025/nird-village/visualizer.html
 ```
 
 > Remarque : certains navigateurs exigent une interaction utilisateur (clic) pour démarrer
