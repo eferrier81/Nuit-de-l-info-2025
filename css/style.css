@@ -676,3 +676,271 @@ select:focus-visible {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ================================
+   MODE RÉTRO 8-BIT NIRD
+   Palette dominante :
+   - Vert CRT : #32c96b
+   - Fond sombre : #020813
+   - Gris : #444, #888
+   - Accent orange : #ffb347
+   ================================ */
+
+.retro-body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px),
+    radial-gradient(circle at top, #053019 0, #020813 60%, #000000 100%);
+  background-size: 16px 16px, 16px 16px, auto;
+  color: #e4ffe9;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.retro-main {
+  width: 100%;
+  max-width: 960px;
+  padding: 1.5rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.retro-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.retro-title {
+  font-size: clamp(1.8rem, 2.2vw + 1rem, 2.4rem);
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fffbcc;
+  text-shadow: 4px 4px 0 #1a2e18;
+}
+
+.retro-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #32c96b;
+  background-color: rgba(2, 14, 8, 0.9);
+  box-shadow: 4px 4px 0 #10341e;
+}
+
+.retro-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #32c96b;
+  box-shadow: 0 0 6px #32c96b;
+  animation: retro-dot-blink 1s steps(2, start) infinite;
+}
+
+@keyframes retro-dot-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.retro-console {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.retro-console__frame {
+  width: 100%;
+  max-width: 820px;
+  padding: 0.5rem;
+  background: #1c2422;
+  border: 4px solid #444;
+  box-shadow:
+    0 0 0 4px #111,
+    8px 8px 0 #000;
+}
+
+.retro-console__frame::before,
+.retro-console__frame::after {
+  content: "";
+  display: block;
+  border: 3px solid #888;
+  margin: 4px 2px;
+}
+
+.retro-console__screen {
+  border: 4px solid #202c23;
+  background: radial-gradient(circle at top, #163924 0, #020805 60%, #000 100%);
+  margin: 0.25rem 0.25rem 0.5rem;
+  padding: 0.5rem;
+  box-shadow:
+    inset 0 0 0 3px #041107,
+    0 0 16px rgba(50, 201, 107, 0.4);
+}
+
+.retro-screen__inner {
+  padding: 0.35rem 0.5rem;
+  border: 2px solid #32c96b;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9) 0,
+    rgba(0, 0, 0, 0.9) 2px,
+    rgba(0, 25, 10, 0.9) 4px
+  );
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.retro-screen__line {
+  margin: 0 0 0.1rem;
+  color: #aee9b8;
+}
+
+.retro-screen__line--highlight {
+  color: #fffbcc;
+}
+
+.retro-console__panel {
+  padding: 0.4rem 0.5rem 0.6rem;
+  background: #101715;
+  border-top: 3px solid #303b35;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.retro-console__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.retro-chip {
+  display: inline-flex;
+  flex-direction: column;
+  border: 3px solid #555;
+  background: #1b2320;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.retro-chip__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #9fb1a6;
+}
+
+.retro-chip__value {
+  font-size: 0.95rem;
+  color: #ffb347;
+}
+
+.retro-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.btn-nes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.9rem;
+  border: 3px solid #222;
+  box-shadow:
+    0 0 0 2px #888,
+    4px 4px 0 #000;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: #c0c0c0;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-nes--primary {
+  background: #32c96b;
+  color: #021007;
+}
+
+.btn-nes--secondary {
+  background: #ffb347;
+  color: #2b1900;
+}
+
+.btn-nes:hover,
+.btn-nes:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow:
+    0 0 0 2px #fff,
+    6px 6px 0 #000;
+  text-decoration: none;
+}
+
+.retro-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #a3b8ac;
+}
+
+.retro-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.retro-footer__text {
+  font-size: 0.8rem;
+  color: #c6d8ce;
+}
+
+.retro-link {
+  color: #9cf5b7;
+  text-decoration: none;
+}
+
+.retro-link:hover,
+.retro-link:focus-visible {
+  text-decoration: underline;
+}
+
+.retro-main img {
+  image-rendering: pixelated;
+}
+
+@media (max-width: 720px) {
+  .retro-main {
+    padding-inline: 0.5rem;
+  }
+
+  .retro-console__frame {
+    box-shadow:
+      0 0 0 3px #111,
+      4px 4px 0 #000;
+  }
+
+  .retro-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-nes {
+    width: 100%;
+    justify-content: center;
+  }
+}
