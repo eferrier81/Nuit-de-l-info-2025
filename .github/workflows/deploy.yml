@@ -6,24 +6,19 @@ on:
       - main
 
 permissions:
-  contents: write   # nécessaire pour pousser sur gh-pages
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Récupérer le code de la branche main
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Déployer le contenu du dossier statique vers gh-pages
-      #    Ici, ton site est dans le dossier nird-village/
       - name: Deploy static site to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./nird-village
           publish_branch: gh-pages
-          # Optionnel : message de commit personnalisé
-          # commit_message: "Deploy static site from GitHub Actions"
