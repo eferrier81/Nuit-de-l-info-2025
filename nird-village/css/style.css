@@ -633,6 +633,47 @@ select:focus-visible {
   text-align: center;
 }
 
+/* Visualizer specific alignment to match site container */
+.visualizer-header {
+  border-bottom: 1px solid rgba(176, 245, 201, 0.15);
+  background: linear-gradient(90deg, rgba(12,53,34,0.9), rgba(4,15,10,0.95));
+}
+
+.visualizer-header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.visualizer-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.visualizer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .visualizer-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .visualizer-info,
+  .visualizer-controls {
+    width: 100%;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero {
@@ -860,8 +901,7 @@ select:focus-visible {
   margin: 0;
   min-height: 100vh;
   display: flex;
-  align-items: stretch;
-  justify-content: center;
+  flex-direction: column;
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.4) 1px, transparent 1px),
@@ -871,23 +911,48 @@ select:focus-visible {
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
-.retro-main {
-  width: 100%;
-  max-width: 960px;
-  padding: 1.5rem 1rem 2rem;
+.retro-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  width: 100%;
+}
+
+/* Retro Header Section */
+.retro-header-section {
+  padding: 1.5rem 1rem 1rem;
+  border-bottom: 3px solid #32c96b;
+  background: linear-gradient(180deg, rgba(5, 48, 25, 0.4) 0%, rgba(2, 8, 19, 0.3) 100%);
 }
 
 .retro-header {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
   text-align: center;
-  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Retro Content Section */
+.retro-content-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+/* Retro Footer Section */
+.retro-footer-section {
+  padding: 1.5rem 1rem;
+  border-top: 3px solid #32c96b;
+  background: linear-gradient(180deg, rgba(2, 8, 19, 0.3) 0%, rgba(5, 48, 25, 0.4) 100%);
 }
 
 .retro-title {
-  font-size: clamp(1.8rem, 2.2vw + 1rem, 2.4rem);
-  margin: 0 0 0.25rem;
+  font-size: clamp(1.6rem, 2vw + 0.8rem, 2.2rem);
+  margin: 0 0 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #fffbcc;
@@ -898,11 +963,11 @@ select:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.85rem;
-  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
   border: 2px solid #32c96b;
   background-color: rgba(2, 14, 8, 0.9);
-  box-shadow: 4px 4px 0 #10341e;
+  box-shadow: 3px 3px 0 #10341e;
 }
 
 .retro-dot {
@@ -925,7 +990,7 @@ select:focus-visible {
 }
 
 .retro-console {
-  flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1070,8 +1135,13 @@ select:focus-visible {
 }
 
 .retro-footer {
-  margin-top: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+  font-size: 0.7rem;
   text-align: center;
+  color: #9fb1a6;
 }
 
 .retro-footer__text {
@@ -1091,6 +1161,20 @@ select:focus-visible {
 
 .retro-main img {
   image-rendering: pixelated;
+}
+
+@media (max-width: 768px) {
+  .retro-header-section {
+    padding: 1rem 0.8rem 0.75rem;
+  }
+
+  .retro-content-section {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .retro-footer-section {
+    padding: 1rem 0.8rem;
+  }
 }
 
 @media (max-width: 720px) {
