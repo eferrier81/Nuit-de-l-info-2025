@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mode Rétro NIRD - Console du Village Résistant</title>
+  <meta name="description" content="Mode rétro-gaming 8-bit du Village Numérique Résistant : console NIRD, gros pixels et résistance numérique.">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="retro-body">
+  <main class="retro-main" aria-labelledby="retro-title">
+    <header class="retro-header">
+      <h1 id="retro-title" class="retro-title">Console du Village Résistant</h1>
+      <p class="retro-subtitle">
+        <span class="retro-dot"></span> MODE RÉTRO NIRD ACTIVÉ
+      </p>
+    </header>
+
+    <!-- Bloc console centrale -->
+    <section class="retro-console" aria-label="Console rétro NIRD">
+      <div class="retro-console__frame">
+        <div class="retro-console__screen">
+          <div class="retro-screen__inner">
+            <p class="retro-screen__line">&gt; BOOT NIRD v1.0...</p>
+            <p class="retro-screen__line">&gt; SCAN DES DÉPENDANCES PROPRIÉTAIRES...</p>
+            <p class="retro-screen__line">&gt; WINDOWS 10 EOL DÉTECTÉ · CLOUD HORS UE...</p>
+            <p class="retro-screen__line retro-screen__line--highlight">
+              &gt; CONTRE-ATTAQUE : MIGRATION LINUX + RECONDITIONNEMENT EN COURS...
+            </p>
+            <p class="retro-screen__line">&gt; OBJECTIF : LIBÉRER LES ÉCOLES DU VILLAGE.</p>
+          </div>
+        </div>
+
+        <div class="retro-console__panel">
+          <div class="retro-console__stats">
+            <div class="retro-chip">
+              <span class="retro-chip__label">NIRD LVL</span>
+              <span class="retro-chip__value">8‑BIT</span>
+            </div>
+            <div class="retro-chip">
+              <span class="retro-chip__label">VILLAGE</span>
+              <span class="retro-chip__value">73%</span>
+            </div>
+          </div>
+
+          <div class="retro-buttons">
+            <a href="index.html" class="btn-nes btn-nes--primary">
+              ◀ Retour au village
+            </a>
+            <a href="quiz.html" class="btn-nes btn-nes--secondary">
+              ▶ Lancer le défi NIRD
+            </a>
+          </div>
+
+          <p class="retro-hint">
+            ASTUCE : chaque poste reconditionné, chaque salle Linux et chaque
+            ressource libre installée fait monter la barre NIRD du village.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mini bandeau en bas -->
+    <footer class="retro-footer">
+      <p class="retro-footer__text">
+        [F1] Voir les <a href="solutions.html" class="retro-link">fiches solutions NIRD</a> ·
+        [F2] Lire la <a href="index.html#faq" class="retro-link">FAQ du village</a> ·
+        [F3] Mode normal
+      </p>
+    </footer>
+  </main>
+
+  <!-- Chat’bruti – Chat’rlatan -->
+  <div class="chatbruti-container" aria-label="Chat’rlatan, chatbot très approximatif">
+    <header class="chatbruti-header">
+      <div class="chatbruti-avatar" aria-hidden="true">
+        <span class="chatbruti-avatar-face">ಠ‿ಠ</span>
+      </div>
+      <div class="chatbruti-title">
+        <div class="chatbruti-name">Chat’rlatan</div>
+        <div class="chatbruti-subtitle">Philosophe approximatif certifié</div>
+      </div>
+      <button class="chatbruti-toggle" type="button" aria-label="Ouvrir ou fermer le chat">
+        ▼
+      </button>
+    </header>
+
+    <div class="chatbruti-body">
+      <div class="chatbruti-messages" id="chatbruti-messages" aria-live="polite">
+        <div class="chatbruti-message chatbruti-message--bot">
+          <div class="chatbruti-bubble">
+            <p>
+              Bonjour, je suis <strong>Chat’rlatan</strong>. Je réponds rarement à la bonne
+              question, mais toujours avec un immense sérieux intérieur.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <form class="chatbruti-input-row" id="chatbruti-form">
+        <input
+          type="text"
+          id="chatbruti-input"
+          class="chatbruti-input"
+          placeholder="Pose-moi une question... ou pas."
+          autocomplete="off"
+          aria-label="Question à Chat’rlatan"
+        />
+        <button type="submit" class="chatbruti-send-btn">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/chatbruti.js"></script>
+</body>
+</html>
