@@ -11,7 +11,7 @@ Accès à la page rétro
 En ligne (GitHub Pages) :
 
 - Ouvrir l’URL publique du site, par exemple :
-  <https://eferrier81.github.io/Nuit-de-l-info-2025/nird-village/retro.html>
+  <https://eferrier81.github.io/Nuit-de-l-info-2025/retro.html>
   (adapter l’URL si le chemin du dépôt ou du dossier change)
 
 En local :
@@ -75,5 +75,5 @@ Résumé pour le jury
 
 Pour voir le mode rétro 8-bit du Village Numérique Résistant :
 
-- Ouvrir : <https://eferrier81.github.io/Nuit-de-l-info-2025/nird-village/retro.html>
+- Ouvrir : <https://eferrier81.github.io/Nuit-de-l-info-2025/retro.html>
 - Ou, depuis la home du site, cliquer sur « Mode rétro NIRD » dans la barre de navigation.
