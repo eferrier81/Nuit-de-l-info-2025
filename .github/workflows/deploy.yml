@@ -6,12 +6,10 @@ on:
       - main
 
 permissions:
-  contents: write    # nécessaire pour pousser sur gh-pages
-  pages: write       # bonne pratique pour GitHub Pages
-  id-token: write    # requis par certaines actions modernes (sécurité)
+  contents: write   # nécessaire pour pousser sur gh-pages
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,29 +17,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Installer Node.js (version LTS)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
-          cache: 'npm'
-
-      # 3. Installer les dépendances npm
-      - name: Install dependencies
-        run: npm install
-
-      # 4. Builder le projet (doit produire le dossier dist/)
-      - name: Build project
-        run: npm run build
-
-      # 5. Déployer le contenu de dist/ sur la branche gh-pages
-      #    Cette action crée/actualise la branche gh-pages
-      - name: Deploy to GitHub Pages (gh-pages branch)
+      # 2. Déployer le contenu du dossier statique vers gh-pages
+      #    Ici, ton site est dans le dossier nird-village/
+      - name: Deploy static site to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./nird-village
           publish_branch: gh-pages
-          # Optionnel : garder l'historique des déploiements
-          # enable_jekyll: false
-          # commit_message: "Deploy from GitHub Actions"
+          # Optionnel : message de commit personnalisé
+          # commit_message: "Deploy static site from GitHub Actions"
