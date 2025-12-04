@@ -11,13 +11,13 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: radial-gradient(circle at top, #183c2a 0, #020b08 45%, #000000 100%);
-      color: #f5f7f6;
+      background: radial-gradient(circle at top, var(--color-bg-soft) 0, var(--color-bg) 45%, #000 100%);
+      color: var(--color-text);
     }
 
     .visualizer-header {
-      border-bottom: 1px solid rgba(176, 245, 201, 0.25);
-      background: linear-gradient(90deg, rgba(12, 53, 34, 0.9), rgba(4, 15, 10, 0.95));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9));
     }
 
     .visualizer-header-inner {
@@ -50,7 +50,7 @@
 
     .visualizer-subtitle {
       font-size: 0.8rem;
-      color: #cbd8d3;
+      color: var(--color-text-muted);
     }
 
     .visualizer-controls {
@@ -63,9 +63,9 @@
     .visualizer-btn,
     .visualizer-file-label {
       border-radius: 999px;
-      border: 1px solid rgba(176, 245, 201, 0.6);
-      background: rgba(5, 32, 20, 0.9);
-      color: #f5f7f6;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--color-text);
       font-size: 0.8rem;
       padding: 0.3rem 0.9rem;
       cursor: pointer;
@@ -79,7 +79,7 @@
     .visualizer-btn:focus-visible,
     .visualizer-file-label:hover,
     .visualizer-file-label:focus-visible {
-      background: rgba(23, 94, 59, 0.95);
+      background: rgba(31, 41, 55, 0.95);
     }
 
     .visualizer-btn:disabled,
@@ -90,7 +90,7 @@
 
     .visualizer-btn:disabled:hover,
     .visualizer-btn[aria-disabled="true"]:hover {
-      background: rgba(5, 32, 20, 0.9);
+      background: rgba(15, 23, 42, 0.95);
     }
 
     .visualizer-file-input {
@@ -102,12 +102,12 @@
       align-items: center;
       gap: 0.35rem;
       font-size: 0.75rem;
-      color: #c7d4ce;
+      color: var(--color-text-muted);
     }
 
     .visualizer-volume input[type="range"] {
       width: 120px;
-      accent-color: #32c96b;
+      accent-color: var(--color-accent);
     }
 
     .visualizer-main {
@@ -120,7 +120,7 @@
       width: 100%;
       height: 100%;
       display: block;
-      background: radial-gradient(circle at center, #020807 0, #000000 45%, #020807 100%);
+      background: radial-gradient(circle at center, #020617 0, #000 45%, #020617 100%);
     }
 
     .visualizer-message {
@@ -144,20 +144,20 @@
     .visualizer-message__text {
       font-size: 0.95rem;
       max-width: 32rem;
-      color: #d3e3dd;
+      color: var(--color-text-muted);
     }
 
     .visualizer-footer {
       padding: 0.4rem 1rem;
       font-size: 0.7rem;
       text-align: center;
-      color: #9fb2aa;
-      background: rgba(1, 5, 4, 0.9);
-      border-top: 1px solid rgba(176, 245, 201, 0.2);
+      color: var(--color-muted);
+      background: rgba(15, 23, 42, 0.96);
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
     }
 
     .visualizer-footer a {
-      color: #7df1aa;
+      color: var(--color-primary-soft);
       text-decoration: none;
     }
 
