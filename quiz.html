@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz NIRD - Village Numérique Résistant</title>
+  <meta name="description" content="Parcours quiz pour libérer ton établissement de la dépendance numérique et découvrir la démarche NIRD." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header" aria-label="En-tête principal">
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html" class="nav__logo" aria-label="Retour à l'accueil">
+        <span class="nav__logo-icon" aria-hidden="true">⚡</span>
+        <span class="nav__logo-text">Village Numérique Résistant</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Ouvrir le menu</span>
+        ☰
+      </button>
+      <div id="nav-menu" class="nav__links">
+        <a href="index.html#intro" class="nav__link">Accueil</a>
+        <a href="index.html#stats" class="nav__link">Village en chiffres</a>
+        <a href="solutions.html" class="nav__link">Solutions NIRD</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="quiz-main" aria-labelledby="quiz-title">
+    <section class="hero" aria-label="Quiz NIRD">
+      <div class="hero__content">
+        <h1 id="quiz-title" class="hero__title">Défi du Village Libre</h1>
+        <p class="hero__subtitle">
+          Réponds aux questions, gagne des points NIRD et fais progresser le
+          <strong>Village Numérique Résistant</strong> du niveau "Novice" jusqu'au titre ultime de
+          <strong>Libérateur d'écoles</strong>.
+        </p>
+
+        <div class="hero__cta-group">
+          <p class="hero__note">
+            Ton meilleur score : <span id="quiz-best-score">aucun pour le moment… à toi de jouer !</span>
+          </p>
+        </div>
+
+        <div class="village-badge">
+          <span class="village-badge__title">Village Libre</span>
+          <span class="village-badge__gauge-label" id="quiz-progress-label">0% du village libéré</span>
+          <div class="progress" aria-hidden="true">
+            <div class="progress__bar" id="quiz-progress-bar"></div>
+          </div>
+          <p class="village-badge__percent">
+            Score actuel : <span id="quiz-score">0</span> points
+          </p>
+        </div>
+      </div>
+
+      <div class="hero__illustration" aria-hidden="true">
+        <div class="hero__icons">
+          <span class="hero__icon">📜</span>
+          <span class="hero__icon">🛡️</span>
+          <span class="hero__icon">🐧</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="actions" aria-label="Questions du quiz">
+      <div class="action-card">
+        <h2 id="quiz-question">Chargement de la première question…</h2>
+        <ol id="quiz-choices" class="quiz-choices" aria-label="Réponses possibles">
+          <!-- options générées en JS -->
+        </ol>
+
+        <div id="quiz-feedback" class="quiz-feedback" hidden>
+          <p id="quiz-feedback-message" class="quiz-feedback__message"></p>
+          <p id="quiz-feedback-tip" class="quiz-feedback__tip"></p>
+        </div>
+
+        <button id="quiz-next" class="btn btn--primary btn--full" type="button" disabled>
+          Question suivante
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <section id="quiz-end" class="actions" aria-label="Résultats du quiz" hidden>
+    <div class="action-card">
+      <h2>Félicitations, la résistance te salue !</h2>
+      <p>
+        Ton score : <strong id="quiz-end-score"></strong><br />
+        Ton badge : <strong id="quiz-end-badge"></strong>
+      </p>
+      <p id="quiz-end-details"></p>
+      <p>
+        Partage ton résultat et invite d'autres établissements à rejoindre le
+        <strong>Village Numérique Résistant</strong> :
+      </p>
+      <div class="hero__cta-group">
+        <button class="btn btn--ghost btn--small" type="button" data-share="twitter">Partager sur X/Twitter</button>
+        <button class="btn btn--ghost btn--small" type="button" data-share="mastodon">Partager sur Mastodon</button>
+        <button class="btn btn--accent btn--small" type="button" data-share="clipboard">Copier le texte de partage</button>
+      </div>
+      <p class="hero__note">
+        Tu peux maintenant explorer les <a href="solutions.html" class="link">solutions concrètes NIRD</a>
+        pour transformer ton établissement.
+      </p>
+    </div>
+  </section>
+
+  <footer class="site-footer" aria-label="Pied de page">
+    <p>
+      Projet open source · Licence <a href="LICENSE" class="link">MIT</a> ·
+      Nuit de l'Info 2025 · NIRD
+    </p>
+  </footer>
+
+  <script type="module" src="js/game-logic.js"></script>
+</body>
+</html>

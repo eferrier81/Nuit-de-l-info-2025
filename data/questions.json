@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "question": "Windows 10 arrive en fin de support (EOL). Que se passe-t-il si un lycée continue à l'utiliser partout sans plan de transition ?",
+    "choices": [
+      "Rien de grave, les PC continueront juste à fonctionner comme avant",
+      "Les machines ne démarrent plus du tout du jour au lendemain",
+      "Il n'y a plus de mises à jour de sécurité, ce qui augmente les risques et le coût de support",
+      "Microsoft migre automatiquement et gratuitement tout le parc vers la dernière version"
+    ],
+    "answer": 2,
+    "points": 20,
+    "tip": "Anticiper la fin de support permet de planifier du reconditionnement et des migrations vers des systèmes plus durables (par exemple des distributions GNU/Linux adaptées au scolaire)."
+  },
+  {
+    "id": 2,
+    "question": "Un collège stocke tous ses documents d'élèves sur un cloud américain propriétaire sans vérifier où sont hébergées les données. Quel est le risque principal ?",
+    "choices": [
+      "Les données deviennent automatiquement open source",
+      "Un manque de maîtrise sur la localisation et la conformité juridique des données",
+      "Les fichiers se suppriment au bout de 30 jours",
+      "Les enseignants doivent changer de mot de passe chaque jour"
+    ],
+    "answer": 1,
+    "points": 20,
+    "tip": "La démarche NIRD encourage l'hébergement sobre, maîtrisé et conforme (solutions locales, européens, services publics numériques ou libres)."
+  },
+  {
+    "id": 3,
+    "question": "Dans un lycée, tous les cours sont construits autour d'un seul écosystème fermé (suite bureautique, cloud, messagerie) imposé par un géant du numérique. Quel est le problème majeur ?",
+    "choices": [
+      "Les élèves ne peuvent plus utiliser de papier",
+      "L'établissement devient dépendant d'un fournisseur unique, ce qui réduit sa liberté de choix",
+      "Les enseignants n'ont plus le droit d'imprimer des polycopiés",
+      "Les ordinateurs deviennent plus lents"
+    ],
+    "answer": 1,
+    "points": 15,
+    "tip": "Diversifier les outils avec des logiciels libres (LibreOffice, OnlyOffice, Nextcloud, etc.) renforce l'autonomie numérique des établissements."
+  },
+  {
+    "id": 4,
+    "question": "Un parc informatique est renouvelé tous les 3 ans alors que la plupart des machines pourraient être reconditionnées. Quel levier NIRD prioritaire est ignoré ?",
+    "choices": [
+      "L'inclusion",
+      "La responsabilité économique uniquement",
+      "La durabilité et la sobriété matérielle",
+      "La vitesse de la connexion Internet"
+    ],
+    "answer": 2,
+    "points": 15,
+    "tip": "Le reconditionnement et l'extension de la durée de vie des équipements sont au coeur d'un numérique durable."
+  },
+  {
+    "id": 5,
+    "question": "Une école n'utilise qu'un seul système d'exploitation propriétaire, ce qui exclut certains élèves qui n'y ont pas accès chez eux. Quel pilier NIRD est touché ?",
+    "choices": [
+      "L'inclusion numérique",
+      "La performance des processeurs",
+      "La vitesse du Wi-Fi",
+      "Aucun, c'est un simple choix technique"
+    ],
+    "answer": 0,
+    "points": 15,
+    "tip": "Proposer des logiciels libres multiplateformes (Linux, LibreOffice, web) permet aux élèves d'apprendre avec les mêmes outils à l'école et à la maison."
+  },
+  {
+    "id": 6,
+    "question": "Pourquoi un établissement scolaire aurait intérêt à tester une salle informatique sous GNU/Linux ?",
+    "choices": [
+      "Pour ne plus jamais faire de mises à jour",
+      "Pour bénéficier de logiciels libres, réduire les coûts de licences et prolonger la vie du matériel",
+      "Parce que c'est obligatoire dans tous les lycées",
+      "Uniquement pour les cours de musique"
+    ],
+    "answer": 1,
+    "points": 15,
+    "tip": "De nombreuses distributions sont adaptées à l'éducation (Debian Edu, PrimTux, Ubuntu, etc.) et fonctionnent bien sur du matériel reconditionné."
+  },
+  {
+    "id": 7,
+    "question": "Quel exemple d'outil va dans le sens d'un numérique responsable et libre ?",
+    "choices": [
+      "Un traitement de texte propriétaire payant obligatoire",
+      "Un réseau social fermé non modéré",
+      "LibreOffice installé sur des PC reconditionnés",
+      "Une application qui collecte toutes les données possibles"] ,
+    "answer": 2,
+    "points": 15,
+    "tip": "La bureautique libre (LibreOffice, OnlyOffice, etc.) limite la dépendance à un éditeur unique et favorise l'interopérabilité des formats."
+  },
+  {
+    "id": 8,
+    "question": "Le lycée Carnot souhaite réduire sa dépendance aux GAFAM. Quelle première étape cohérente peut-il envisager ?",
+    "choices": [
+      "Interdire tout usage d'Internet",
+      "Mettre en place un cloud libre (par ex. Nextcloud) auto-hébergé ou mutualisé",
+      "Migrer tout le monde vers un réseau social propriétaire",
+      "Obliger les élèves à acheter des tablettes d'une seule marque"
+    ],
+    "answer": 1,
+    "points": 20,
+    "tip": "De nombreux établissements mettent en place des solutions libres comme Nextcloud pour la collaboration et le stockage, avec une gouvernance locale des données."
+  },
+  {
+    "id": 9,
+    "question": "Pourquoi l'obsolescence logicielle est-elle un problème central pour les établissements scolaires ?",
+    "choices": [
+      "Elle oblige à remplacer du matériel encore fonctionnel juste pour suivre les mises à jour",
+      "Elle améliore la vitesse des ordinateurs",
+      "Elle garantit que tout le monde achète du nouveau matériel chaque année",
+      "Elle réduit la consommation énergétique des serveurs"
+    ],
+    "answer": 0,
+    "points": 20,
+    "tip": "Le numérique durable cherche à rompre ce cycle en valorisant les logiciels qui prolongent la durée de vie du parc existant."
+  },
+  {
+    "id": 10,
+    "question": "Dans une démarche NIRD, pourquoi est-il important de sensibiliser les équipes pédagogiques ?",
+    "choices": [
+      "Parce qu'elles décident des outils utilisés en classe",
+      "Parce qu'elles réparent physiquement les ordinateurs",
+      "Parce qu'elles écrivent le système d'exploitation",
+      "Ce n'est pas utile, seul le service informatique est concerné"
+    ],
+    "answer": 0,
+    "points": 15,
+    "tip": "Former et associer les enseignants permet de choisir des ressources et des pratiques pédagogiques cohérentes avec les valeurs du numérique libre et responsable."
+  },
+  {
+    "id": 11,
+    "question": "Quel est l'intérêt de formats ouverts (ODF, etc.) pour un établissement ?",
+    "choices": [
+      "Ils se lisent uniquement sur une machine",
+      "Ils permettent de changer de logiciel sans perdre l'accès aux documents",
+      "Ils bloquent l'impression",
+      "Ils obligent à utiliser des outils payants"
+    ],
+    "answer": 1,
+    "points": 15,
+    "tip": "Les formats ouverts facilitent la pérennité des contenus pédagogiques et évitent de lier les ressources à un seul éditeur."
+  },
+  {
+    "id": 12,
+    "question": "Une collectivité équipe des écoles avec des PC reconditionnés. Quel bénéfice principal pour le NIRD ?",
+    "choices": [
+      "Augmenter la consommation d'énergie",
+      "Réduire les déchets électroniques et les coûts tout en incluant plus d'élèves",
+      "Rendre les PC inutilisables pour les cours",
+      "Remplacer les enseignants par des robots"
+    ],
+    "answer": 1,
+    "points": 15,
+    "tip": "Le reconditionnement est un levier fort pour la durabilité et l'inclusion, en offrant plus de postes à budget constant."
+  },
+  {
+    "id": 13,
+    "question": "Dans une perspective NIRD, comment limiter la dépendance à un app store propriétaire ?",
+    "choices": [
+      "N'utiliser que des applications payantes",
+      "Privilégier des applications web libres accessibles depuis un simple navigateur",
+      "Interdire l'usage des smartphones personnels",
+      "Installer toutes les applications possibles"
+    ],
+    "answer": 1,
+    "points": 15,
+    "tip": "Les applications web libres et les portails éducatifs ouverts permettent un accès multiplateforme et limitent les enfermements propriétaires."
+  },
+  {
+    "id": 14,
+    "question": "Quel lien entre sobriété numérique et pédagogie ?",
+    "choices": [
+      "La sobriété numérique empêche d'utiliser le numérique en classe",
+      "Elle invite à choisir des usages réellement utiles et à limiter le superflu (vidéo HD inutile, multiplications d'outils)",
+      "Elle impose de couper le Wi-Fi en permanence",
+      "Elle n'a aucun impact sur les pratiques pédagogiques"
+    ],
+    "answer": 1,
+    "points": 15,
+    "tip": "Le NIRD encourage des scénarios pédagogiques où le numérique est un levier, pas une fin en soi."
+  },
+  {
+    "id": 15,
+    "question": "Pourquoi documenter la démarche NIRD d'un établissement (par exemple sur un site type nird.forge.apps.education.fr) ?",
+    "choices": [
+      "Pour montrer que rien n'a changé",
+      "Pour partager les retours d'expérience et inspirer d'autres écoles",
+      "Pour obliger tout le monde à copier exactement la même solution",
+      "Uniquement pour communiquer auprès des fournisseurs privés"
+    ],
+    "answer": 1,
+    "points": 20,
+    "tip": "Les retours d'expérience (comme ceux du lycée Carnot) aident à mutualiser les bonnes pratiques et à ajuster les choix techniques."
+  }
+]

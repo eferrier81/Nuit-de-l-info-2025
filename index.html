@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Village Numérique Résistant - NIRD</title>
+  <meta name="description" content="Le Village Numérique Résistant : une aventure ludique pour découvrir le numérique inclusif, responsable et durable (NIRD)." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/village-icon.svg" />
+</head>
+<body>
+  <header class="site-header" aria-label="En-tête principal">
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#top" class="nav__logo" aria-label="Retour à l'accueil">
+        <span class="nav__logo-icon" aria-hidden="true">⚡</span>
+        <span class="nav__logo-text">Village Numérique Résistant</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Ouvrir le menu</span>
+        ☰
+      </button>
+      <div id="nav-menu" class="nav__links">
+        <a href="#intro" class="nav__link">L'histoire</a>
+        <a href="#stats" class="nav__link">Village en chiffres</a>
+        <a href="#actions" class="nav__link">Passer à l'action</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Section Hero -->
+    <section id="intro" class="hero" aria-labelledby="hero-title">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Nuit de l'Info 2025 · NIRD</p>
+        <h1 id="hero-title" class="hero__title">
+          Bienvenue au <span class="hero__highlight">Village Numérique Résistant</span>
+        </h1>
+        <p class="hero__subtitle">
+          Ici, pas de potion magique… mais des <strong>solutions libres</strong> !
+          Aide les villageois à libérer leur école de la dépendance aux géants du numérique
+          et à adopter le <strong>Numérique Inclusif, Responsable et Durable</strong>.
+        </p>
+
+        <div class="hero__cta-group" aria-label="Actions principales">
+          <a href="quiz.html" class="btn btn--primary">Démarrer le Quiz</a>
+          <a href="solutions.html" class="btn btn--ghost">Explorer les Solutions</a>
+          <button class="btn btn--accent" type="button" data-open-join-modal>
+            Rejoindre NIRD
+          </button>
+        </div>
+
+        <p class="hero__note">
+          Pas besoin d'être Astérix pour résister : chaque clic peut réduire
+          la dépendance à un écosystème propriétaire.
+        </p>
+      </div>
+
+      <div class="hero__illustration" aria-hidden="true">
+        <div class="village-badge">
+          <span class="village-badge__title">Village Libre</span>
+          <span class="village-badge__gauge-label">Progression</span>
+          <div class="progress" role="img" aria-label="Barre de progression du Village Libre">
+            <div class="progress__bar" id="village-progress-bar"></div>
+          </div>
+          <p class="village-badge__percent">
+            <span id="village-progress-value">0</span>% libéré
+          </p>
+        </div>
+        <div class="hero__icons">
+          <span class="hero__icon" aria-hidden="true">🛡️</span>
+          <span class="hero__icon" aria-hidden="true">🌱</span>
+          <span class="hero__icon" aria-hidden="true">🐧</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistiques fictives -->
+    <section id="stats" class="stats" aria-labelledby="stats-title">
+      <h2 id="stats-title" class="section-title">Le village résiste déjà !</h2>
+      <p class="section-intro">
+        Ces chiffres sont fictifs mais atteignables si chaque établissement rejoint la résistance NIRD.
+      </p>
+      <div class="stats__grid" role="list">
+        <article class="stat-card" role="listitem">
+          <h3 class="stat-card__label">Écoles engagées</h3>
+          <p class="stat-card__value"><span data-stat="schools">0</span>+</p>
+          <p class="stat-card__detail">du primaire au supérieur, comme le <strong>lycée Carnot</strong>.</p>
+        </article>
+
+        <article class="stat-card" role="listitem">
+          <h3 class="stat-card__label">Serveurs libérés des géants</h3>
+          <p class="stat-card__value"><span data-stat="servers">0</span></p>
+          <p class="stat-card__detail">migrés vers des solutions <strong>libres et souveraines</strong>.</p>
+        </article>
+
+        <article class="stat-card" role="listitem">
+          <h3 class="stat-card__label">Licences propriétaires évitées</h3>
+          <p class="stat-card__value"><span data-stat="licenses">0</span></p>
+          <p class="stat-card__detail">grâce au passage à <strong>Linux</strong>, LibreOffice &amp; co.</p>
+        </article>
+
+        <article class="stat-card" role="listitem">
+          <h3 class="stat-card__label">Appareils reconditionnés</h3>
+          <p class="stat-card__value"><span data-stat="devices">0</span></p>
+          <p class="stat-card__detail">PC sauvés de l'obsolescence annoncée (Windows 10 EOL).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Appel à l'action NIRD -->
+    <section id="actions" class="actions" aria-labelledby="actions-title">
+      <h2 id="actions-title" class="section-title">Prêt(e) à libérer ton établissement ?</h2>
+      <div class="actions__grid">
+        <article class="action-card">
+          <h3>1. Comprendre les enjeux</h3>
+          <p>
+            Découvre à travers le quiz comment les licences propriétaires, les plateformes fermées
+            et le stockage hors UE créent une dépendance numérique.
+          </p>
+          <a href="quiz.html" class="link">Lancer le parcours&nbsp;→</a>
+        </article>
+
+        <article class="action-card">
+          <h3>2. Explorer les solutions NIRD</h3>
+          <p>
+            Linux, logiciels libres, reconditionnement, gouvernance locale des données…
+            Parcours des pistes concrètes pour ton école ou ta collectivité.
+          </p>
+          <a href="solutions.html" class="link">Découvrir les solutions&nbsp;→</a>
+        </article>
+
+        <article class="action-card">
+          <h3>3. Rejoindre la communauté</h3>
+          <p>
+            Inscris ton établissement dans la carte des <strong>villages numériques résistants</strong>
+            et partage vos actions.
+          </p>
+          <button class="btn btn--accent btn--small" type="button" data-open-join-modal>
+            Rejoindre NIRD
+          </button>
+        </article>
+      </div>
+
+      <div class="actions__footer">
+        <p>
+          Envie d'aller plus loin ? Consulte les ressources officielles NIRD sur
+          <a href="https://nird.forge.apps.education.fr" target="_blank" rel="noopener noreferrer">
+            nird.forge.apps.education.fr
+          </a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ interactive NIRD -->
+    <section id="faq" class="actions" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ NIRD : les questions du village</h2>
+      <p class="section-intro">
+        Quelques réponses rapides pour comprendre d'où vient cette idée de <strong>Village Numérique Résistant</strong>
+        et comment démarrer concrètement.
+      </p>
+
+      <div class="faq" aria-label="Foire aux questions sur le NIRD">
+        <article class="faq-item">
+          <button class="faq-item__header" type="button" aria-expanded="false">
+            <span class="faq-item__question">Pourquoi parle-t-on de &laquo; dépendance numérique &raquo; ?</span>
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__panel" hidden>
+            <p>
+              Quand un établissement repose entièrement sur un seul fournisseur (système d'exploitation,
+              cloud, suite bureautique), il devient <strong>dépendant</strong> de ses décisions : fin de support,
+              hausse des prix, changements de conditions d'utilisation, stockage des données hors UE, etc.
+            </p>
+            <p>
+              Le NIRD propose de <strong>reprendre la main</strong> avec des outils libres, des formats ouverts et
+              une gouvernance locale des choix numériques.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__header" type="button" aria-expanded="false">
+            <span class="faq-item__question">C'est quoi concrètement la démarche NIRD ?</span>
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__panel" hidden>
+            <p>
+              NIRD signifie <strong>Numérique Inclusif, Responsable et Durable</strong>. C'est une démarche portée
+              par l'Éducation nationale pour questionner nos usages : outils, infrastructures, pédagogie.
+            </p>
+            <p>
+              Inclusif : permettre à tous et toutes d'accéder aux ressources. Responsable : limiter les
+              dépendances, respecter la vie privée. Durable : réduire l'impact environnemental (reconditionnement,
+              sobriété, mutualisation).
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__header" type="button" aria-expanded="false">
+            <span class="faq-item__question">Par où commencer dans mon établissement ?</span>
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__panel" hidden>
+            <p>
+              Inutile de vouloir tout changer d'un coup. Quelques pistes de départ :
+            </p>
+            <ul>
+              <li>Identifier les dépendances principales (licences, cloud, écosystèmes fermés).</li>
+              <li>Lancer une <strong>petite expérimentation</strong> (salle Linux, cloud libre, reconditionnement).</li>
+              <li>Associer une équipe motivée (enseignants, élèves, DSI, direction).</li>
+            </ul>
+            <p>
+              Le quiz et les fiches conseils de cette application peuvent servir de support pour une première
+              réunion de sensibilisation.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__header" type="button" aria-expanded="false">
+            <span class="faq-item__question">Où trouver des ressources officielles sur le NIRD ?</span>
+            <span class="faq-item__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__panel" hidden>
+            <p>
+              Tu peux consulter les ressources, retours d'expérience et documents de cadrage sur :
+              <a href="https://nird.forge.apps.education.fr" target="_blank" rel="noopener noreferrer" class="link">
+                nird.forge.apps.education.fr
+              </a>.
+            </p>
+            <p>
+              N'hésite pas à t'inspirer des démarches publiées pour imaginer ton propre <strong>Village Numérique Résistant</strong>.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Rejoindre NIRD -->
+  <section class="modal" id="join-modal" aria-hidden="true" aria-labelledby="join-modal-title" role="dialog">
+    <div class="modal__backdrop" data-close-join-modal></div>
+    <div class="modal__dialog" role="document">
+      <header class="modal__header">
+        <h2 id="join-modal-title">Rejoindre le Village Numérique Résistant</h2>
+        <button class="modal__close" type="button" aria-label="Fermer la fenêtre" data-close-join-modal>×</button>
+      </header>
+      <div class="modal__body">
+        <p>
+          Ce formulaire est fictif : il te propose un <strong>mini engagement NIRD</strong>
+          pour ton établissement. À adapter dans le cadre réel de ton académie.
+        </p>
+        <form class="join-form" id="join-form" novalidate>
+          <div class="form-field">
+            <label for="school-name">Nom de l'établissement</label>
+            <input id="school-name" name="school-name" type="text" required autocomplete="organization" />
+          </div>
+          <div class="form-field">
+            <label for="role">Rôle</label>
+            <select id="role" name="role" required>
+              <option value="">Sélectionner</option>
+              <option value="eleve">Élève</option>
+              <option value="enseignant">Enseignant</option>
+              <option value="direction">Direction</option>
+              <option value="collectivite">Collectivité / DSI</option>
+            </select>
+          </div>
+          <fieldset class="form-field">
+            <legend>Premier engagement NIRD</legend>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="commit" value="audit" /> Auditer les dépendances (licences, cloud, écosystèmes)</label>
+              <label><input type="checkbox" name="commit" value="linux" /> Tester une salle en <strong>Linux</strong> reconditionné</label>
+              <label><input type="checkbox" name="commit" value="sensibilisation" /> Organiser une séance de sensibilisation NIRD</label>
+            </div>
+          </fieldset>
+          <button class="btn btn--primary btn--full" type="submit">Valider l'engagement</button>
+          <p class="form-message" id="join-form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" aria-label="Pied de page">
+    <p>
+      Projet open source · Licence <a href="LICENSE" class="link">MIT</a> ·
+      Nuit de l'Info 2025 · NIRD
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
