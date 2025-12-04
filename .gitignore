@@ -1,0 +1,19 @@
+# Configuration avec clés API
+
+# Variables d'environnement
+.env
+.env.local
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*

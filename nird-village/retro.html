@@ -8,44 +8,18 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="retro-body">
-  <!-- Site Header -->
-  <header class="site-header" aria-label="En-tête principal">
-    <nav class="nav" aria-label="Navigation principale">
-      <a href="index.html" class="nav__logo" aria-label="Retour à l'accueil">
-        <span class="nav__logo-icon" aria-hidden="true">⚡</span>
-        <span class="nav__logo-text">Village Numérique Résistant</span>
-      </a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
-        <span class="sr-only">Ouvrir le menu</span>
-        ☰
-      </button>
-      <div id="nav-menu" class="nav__links">
-        <a href="index.html#intro" class="nav__link">L'histoire</a>
-        <a href="index.html#stats" class="nav__link">Village en chiffres</a>
-        <a href="index.html#actions" class="nav__link">Passer à l'action</a>
-        <a href="retro.html" class="nav__link">Mode rétro NIRD</a>
-      </div>
-    </nav>
-  </header>
+  <main class="retro-main" aria-labelledby="retro-title">
+    <header class="retro-header">
+      <h1 id="retro-title" class="retro-title">Console du Village Résistant</h1>
+      <p class="retro-subtitle">
+        <span class="retro-dot"></span> MODE RÉTRO NIRD ACTIVÉ
+      </p>
+    </header>
 
-  <!-- Retro Mode Section -->
-  <main class="retro-container" aria-labelledby="retro-title">
-    <!-- Retro Header Section -->
-    <section class="retro-header-section">
-      <header class="retro-header">
-        <h1 id="retro-title" class="retro-title">Console du Village Résistant</h1>
-        <p class="retro-subtitle">
-          <span class="retro-dot"></span> MODE RÉTRO NIRD ACTIVÉ
-        </p>
-      </header>
-    </section>
-
-    <!-- Retro Content Section -->
-    <section class="retro-content-section">
-      <!-- Bloc console centrale -->
-      <div class="retro-console" aria-label="Console rétro NIRD">
-        <div class="retro-console__frame">
-          <div class="retro-console__screen">
+    <!-- Bloc console centrale -->
+    <section class="retro-console" aria-label="Console rétro NIRD">
+      <div class="retro-console__frame">
+        <div class="retro-console__screen">
           <div class="retro-screen__inner">
             <p class="retro-screen__line">&gt; BOOT NIRD v1.0...</p>
             <p class="retro-screen__line">&gt; SCAN DES DÉPENDANCES PROPRIÉTAIRES...</p>
@@ -84,20 +58,16 @@
           </p>
         </div>
       </div>
-      </div>
     </section>
 
-    <!-- Footer Section -->
-    <section class="retro-footer-section">
-      <!-- Mini bandeau en bas -->
-      <footer class="retro-footer">
-        <p class="retro-footer__text">
-          [F1] Voir les <a href="solutions.html" class="retro-link">fiches solutions NIRD</a> ·
-          [F2] Lire la <a href="index.html#faq" class="retro-link">FAQ du village</a> ·
-          [F3] Mode normal
-        </p>
-      </footer>
-    </section>
+    <!-- Mini bandeau en bas -->
+    <footer class="retro-footer">
+      <p class="retro-footer__text">
+        [F1] Voir les <a href="solutions.html" class="retro-link">fiches solutions NIRD</a> ·
+        [F2] Lire la <a href="index.html#faq" class="retro-link">FAQ du village</a> ·
+        [F3] Mode normal
+      </p>
+    </footer>
   </main>
 
   <!-- Chat’bruti – Chat’rlatan -->
@@ -141,7 +111,7 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/config.js"></script>
   <script src="js/chatbruti.js"></script>
 </body>
 </html>

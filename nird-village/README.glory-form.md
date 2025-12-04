@@ -9,7 +9,7 @@ en une véritable **cérémonie de remise de prix** avec projecteurs, confettis 
 
 - Fichier : `nird-village/glory-form.html`
 - URL (GitHub Pages) typique :
-  - `https://eferrier81.github.io/Nuit-de-l-info-2025/glory-form.html`
+  - `https://eferrier81.github.io/Nuit-de-l-info-2025/nird-village/glory-form.html`
 - Depuis la page d’accueil `index.html` :
   - Un lien dans la section "Passer à l’action" :
     - **« contacter le Jury de la Gloire »** → ouvre directement `glory-form.html`.
@@ -35,7 +35,7 @@ http://localhost:8000/glory-form.html
 Ouvrir directement :
 
 ```text
-https://eferrier81.github.io/Nuit-de-l-info-2025/glory-form.html
+https://eferrier81.github.io/Nuit-de-l-info-2025/nird-village/glory-form.html
 ```
 
 ## Champs et validation

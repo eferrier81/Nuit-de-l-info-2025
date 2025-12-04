@@ -1,4 +1,4 @@
-// Chat’bruti - Chat’rlatan : chatbot philosophe mais à côté de la plaque.
+
 
 (function () {
   const messagesEl = document.getElementById('chatbruti-messages');
@@ -9,20 +9,28 @@
 
   if (!messagesEl || !formEl || !inputEl || !container) return;
 
+  
+  let conversationHistory = [];
+  const MAX_HISTORY = 6; 
+
+  // Réponses de secours si l'API échoue (anciennes réponses)
   const philosophicOpeners = [
-    "Intéressante question, mais laisse-moi d’abord te parler d’une chaise.",
-    "On me pose souvent cette question, alors que je n’écoute jamais la réponse.",
-    "Comme disait probablement quelqu’un un jour, ou pas :",
-    "Je vais répondre avec la gravité d’un écran cathodique.",
+    "Intéressante question, mais laisse-moi d'abord te parler d'une chaise.",
+    "On me pose souvent cette question, alors que je n'écoute jamais la réponse.",
+    "Comme disait probablement quelqu'un un jour, ou pas :",
+    "Je vais répondre avec la gravité d'un écran cathodique.",
     "Ta question me rappelle un vieux bug sous Windows 3.1 :",
+    "Ah ! Cette question me fait vibrer comme un vieux modem 56k.",
+    "Excellente interrogation ! J'ai crashé 3 fois en essayant d'y réfléchir.",
   ];
 
   const vaguePhilosophies = [
-    "La vraie réponse, c’est peut-être la question que tu n’as pas encore mal formulée.",
-    "Dans le grand village du numérique, même les pixels se demandent s’ils sont inclusifs.",
+    "La vraie réponse, c'est peut-être la question que tu n'as pas encore mal formulée.",
+    "Dans le grand village du numérique, même les pixels se demandent s'ils sont inclusifs.",
     "Si un serveur tombe dans une forêt sans connexion, fait-il encore du tracking ?",
     "Entre dépendance et liberté, il y a surtout beaucoup de mots compliqués.",
-    "Le nuage n’est qu’un autre mot pour dire : ‘l’ordinateur de quelqu’un d’autre’. Profond, non ?",
+    "Le nuage n'est qu'un autre mot pour dire : 'l'ordinateur de quelqu'un d'autre'. Profond, non ?",
+    "Comme disait mon processeur : 'Je calcule, donc je souffre.'",
   ];
 
   const digressions = [
@@ -118,18 +126,117 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  formEl.addEventListener('submit', (event) => {
+  // Ajouter un indicateur de typing
+  function showTypingIndicator() {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'chatbruti-message chatbruti-message--bot chatbruti-typing-indicator';
+    wrapper.id = 'typing-indicator';
+    
+    const bubble = document.createElement('div');
+    bubble.className = 'chatbruti-bubble';
+    bubble.innerHTML = '<span class="typing-dot">.</span><span class="typing-dot">.</span><span class="typing-dot">.</span>';
+    
+    wrapper.appendChild(bubble);
+    messagesEl.appendChild(wrapper);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const indicator = document.getElementById('typing-indicator');
+    if (indicator) indicator.remove();
+  }
+
+  // Fonction pour appeler l'API OpenAI
+  async function getAIResponse(userMessage) {
+    // Vérifier si la config existe et si USE_AI est activé
+    if (typeof CHATBOT_CONFIG === 'undefined' || !CHATBOT_CONFIG.USE_AI) {
+      return buildAnswer(userMessage); // Fallback sur réponses locales
+    }
+
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${CHATBOT_CONFIG.OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: CHATBOT_CONFIG.MODEL || 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: CHATBOT_CONFIG.SYSTEM_PROMPT
+            },
+            ...conversationHistory,
+            {
+              role: 'user',
+              content: userMessage
+            }
+          ],
+          max_tokens: CHATBOT_CONFIG.MAX_TOKENS || 150,
+          temperature: CHATBOT_CONFIG.TEMPERATURE || 1.2,
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const aiResponse = data.choices[0].message.content.trim();
+
+      // Mettre à jour l'historique
+      conversationHistory.push(
+        { role: 'user', content: userMessage },
+        { role: 'assistant', content: aiResponse }
+      );
+
+      // Limiter l'historique
+      if (conversationHistory.length > MAX_HISTORY) {
+        conversationHistory = conversationHistory.slice(-MAX_HISTORY);
+      }
+
+      return aiResponse;
+
+    } catch (error) {
+      console.error('Erreur API OpenAI:', error);
+      // Fallback sur réponses locales en cas d'erreur
+      return buildAnswer(userMessage) + " (Mon cerveau quantique a bugé, je suis en mode dégradé.)";
+    }
+  }
+
+  formEl.addEventListener('submit', async (event) => {
     event.preventDefault();
     const value = inputEl.value.trim();
     if (!value) return;
 
+    // Désactiver l'input pendant le traitement
+    inputEl.disabled = true;
+
     addMessage(value, true);
     inputEl.value = '';
 
-    setTimeout(() => {
-      const answer = buildAnswer(value);
+    // Afficher l'indicateur de typing
+    showTypingIndicator();
+
+    try {
+      // Utiliser l'API OpenAI si disponible
+      const answer = await getAIResponse(value);
+      
+      // Petit délai pour rendre plus naturel
+      await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500));
+      
+      removeTypingIndicator();
       addMessage(answer, false);
-    }, 400 + Math.random() * 400);
+    } catch (error) {
+      console.error('Erreur:', error);
+      removeTypingIndicator();
+      addMessage("Mon processeur a crashé ! Redémarre-moi en rafraîchissant la page. 🔌", false);
+    } finally {
+      // Réactiver l'input
+      inputEl.disabled = false;
+      inputEl.focus();
+    }
   });
 
   if (toggleBtn) {
