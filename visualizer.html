@@ -16,13 +16,24 @@
     }
 
     .visualizer-header {
-      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid rgba(176, 245, 201, 0.25);
+      background: linear-gradient(90deg, rgba(12, 53, 34, 0.9), rgba(4, 15, 10, 0.95));
+    }
+
+    .visualizer-header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.75rem 1.25rem;
-      border-bottom: 1px solid rgba(176, 245, 201, 0.25);
-      background: linear-gradient(90deg, rgba(12, 53, 34, 0.9), rgba(4, 15, 10, 0.95));
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .visualizer-info {
+      flex: 1;
+      min-width: 200px;
     }
 
     .visualizer-title {
@@ -43,7 +54,6 @@
     }
 
     .visualizer-controls {
-      margin-left: auto;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -70,6 +80,17 @@
     .visualizer-file-label:hover,
     .visualizer-file-label:focus-visible {
       background: rgba(23, 94, 59, 0.95);
+    }
+
+    .visualizer-btn:disabled,
+    .visualizer-btn[aria-disabled="true"] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .visualizer-btn:disabled:hover,
+    .visualizer-btn[aria-disabled="true"]:hover {
+      background: rgba(5, 32, 20, 0.9);
     }
 
     .visualizer-file-input {
@@ -144,9 +165,15 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 640px) {
-      .visualizer-header {
+    @media (max-width: 768px) {
+      .visualizer-header-inner {
         padding: 0.6rem 0.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .visualizer-info {
+        width: 100%;
       }
 
       .visualizer-controls {
@@ -157,33 +184,54 @@
   </style>
 </head>
 <body class="visualizer-page">
-  <header class="visualizer-header" aria-label="Contrôles du visualiseur audio">
-    <div>
-      <div class="visualizer-title">
-        <span aria-hidden="true">🔊</span>
-        <span>Visualiseur Audio du Village Résistant</span>
-      </div>
-      <div class="visualizer-subtitle">Choisis un fichier audio et regarde le village vibrer.</div>
-    </div>
-
-    <div class="visualizer-controls">
-      <label class="visualizer-file-label" for="audio-file-input">
-        <span aria-hidden="true">📂</span>
-        <span>Choisir un fichier audio</span>
-        <input id="audio-file-input" class="visualizer-file-input" type="file" accept="audio/*" />
-      </label>
-
-      <button id="play-pause-btn" class="visualizer-btn" type="button" disabled>
-        ▶︎ Lecture
+  <header class="site-header" aria-label="En-tête principal">
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html" class="nav__logo" aria-label="Retour à l'accueil">
+        <span class="nav__logo-icon" aria-hidden="true">⚡</span>
+        <span class="nav__logo-text">Village Numérique Résistant</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Ouvrir le menu</span>
+        ☰
       </button>
+      <div id="nav-menu" class="nav__links">
+        <a href="index.html#intro" class="nav__link">L'histoire</a>
+        <a href="index.html#stats" class="nav__link">Village en chiffres</a>
+        <a href="index.html#actions" class="nav__link">Passer à l'action</a>
+        <a href="retro.html" class="nav__link">Mode rétro NIRD</a>
+      </div>
+    </nav>
+  </header>
 
-      <div class="visualizer-volume">
-        <span aria-hidden="true">🔉</span>
-        <label for="volume-range" class="sr-only">Volume</label>
-        <input id="volume-range" type="range" min="0" max="1" step="0.01" value="0.8" />
+  <section class="visualizer-header" aria-label="Contrôles du visualiseur audio">
+    <div class="visualizer-header-inner">
+      <div class="visualizer-info">
+        <div class="visualizer-title">
+          <span aria-hidden="true">🔊</span>
+          <span>Visualiseur Audio du Village Résistant</span>
+        </div>
+        <div class="visualizer-subtitle">Choisis un fichier audio et regarde le village vibrer.</div>
+      </div>
+
+      <div class="visualizer-controls">
+        <label class="visualizer-file-label" for="audio-file-input">
+          <span aria-hidden="true">📂</span>
+          <span>Choisir un fichier audio (MP3 recommandé)</span>
+          <input id="audio-file-input" class="visualizer-file-input" type="file" accept="audio/*" />
+        </label>
+
+        <button id="play-pause-btn" class="visualizer-btn" type="button" disabled aria-disabled="true">
+          ▶︎ Lecture
+        </button>
+
+        <div class="visualizer-volume">
+          <span aria-hidden="true">🔉</span>
+          <label for="volume-range" class="sr-only">Volume</label>
+          <input id="volume-range" type="range" min="0" max="1" step="0.01" value="0.8" />
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <main class="visualizer-main" aria-label="Zone de visualisation audio">
     <canvas id="visualizer-canvas"></canvas>
@@ -304,15 +352,30 @@
 
       fileInput.addEventListener('change', (event) => {
         const file = event.target.files && event.target.files[0];
-        if (!file) return;
+          if (!file) return;
 
-        const fileURL = URL.createObjectURL(file);
-        audioEl.src = fileURL;
-        audioEl.load();
-        messageEl.style.display = 'none';
-        playPauseBtn.disabled = false;
-        playPauseBtn.textContent = '▶︎ Lecture';
-        isPlaying = false;
+          // n'activer le bouton que si le fichier est un MP3 (ou a un type audio/mpeg)
+          const isMp3 = (file.type === 'audio/mpeg') || file.name.toLowerCase().endsWith('.mp3');
+
+          const fileURL = URL.createObjectURL(file);
+          audioEl.src = fileURL;
+          audioEl.load();
+          messageEl.style.display = 'none';
+          if (isMp3) {
+            playPauseBtn.disabled = false;
+            playPauseBtn.removeAttribute('aria-disabled');
+            playPauseBtn.textContent = '▶︎ Lecture';
+          } else {
+            // garde le bouton désactivé et informe l'utilisateur
+            playPauseBtn.disabled = true;
+            playPauseBtn.setAttribute('aria-disabled', 'true');
+            playPauseBtn.textContent = '▶︎ Lecture';
+            // affiche une information accessible
+            messageEl.style.display = '';
+            messageEl.querySelector('.visualizer-message__title').textContent = 'Format non pris en charge — sélectionne un MP3';
+            messageEl.querySelector('.visualizer-message__text').textContent = 'Le visualiseur fonctionne au mieux avec des fichiers MP3. Choisis un fichier avec l’extension .mp3.';
+          }
+          isPlaying = false;
       });
 
       playPauseBtn.addEventListener('click', async () => {
@@ -350,5 +413,6 @@
       gainNode.gain.value = parseFloat(volumeRange.value) || 0.8;
     })();
   </script>
+      <script src="js/main.js"></script>
 </body>
 </html>
