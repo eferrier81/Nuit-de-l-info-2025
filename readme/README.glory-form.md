@@ -7,7 +7,7 @@ en une véritable **cérémonie de remise de prix** avec projecteurs, confettis 
 
 ## Où se trouve le "Formulaire de la Gloire" ?
 
-- Fichier : `nird-village/glory-form.html`
+- Fichier : `nird-village/pages/glory-form.html`
 - URL (GitHub Pages) typique :
   - `https://eferrier81.github.io/Nuit-de-l-info-2025/pages/glory-form.html`
 - Depuis la page d’accueil `index.html` :
@@ -27,7 +27,7 @@ python -m http.server 8000
 Puis ouvrir dans votre navigateur :
 
 ```text
-http://localhost:8000/glory-form.html
+http://localhost:8000/pages/glory-form.html
 ```
 
 ### En ligne (jury)

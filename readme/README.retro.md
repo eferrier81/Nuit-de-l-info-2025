@@ -19,12 +19,12 @@ En local :
 - Se placer dans le dossier `nird-village`
 - Lancer un petit serveur HTTP, par exemple :
   python -m http.server 8000
-- Ouvrir ensuite : <http://localhost:8000/retro.html>
+- Ouvrir ensuite : <http://localhost:8000/pages/retro.html>
 
 Contenu de la page rétro
 ------------------------
 
-Fichier : retro.html
+Fichier : `pages/retro.html`
 
 La page « Console du Village Résistant » propose :
 

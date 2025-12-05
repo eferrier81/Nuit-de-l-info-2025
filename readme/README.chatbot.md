@@ -2,9 +2,15 @@
 
 🤖 **Un chatbot absurde et inutile, mais qui assume complètement !**
 
-## 🌐 Démo en ligne
+## 🌐 Intégration dans le Village Numérique Résistant
 
-**Site déployé** : [https://nuitdelinfo.alexisdechenais.fr/](https://nuitdelinfo.alexisdechenais.fr/)
+- Le widget Chat'rlatan est intégré directement dans plusieurs pages du site :
+  - `index.html` (page d’accueil)
+  - `pages/retro.html` (mode rétro)
+  - `pages/visualizer.html` (visualiseur audio)
+  - `pages/glory-form.html` (formulaire de la Gloire)
+
+Il apparaît comme une petite fenêtre flottante en bas à droite.
 
 ## 📖 Description
 
@@ -29,55 +35,39 @@ Chat'rlatan est un chatbot basé sur GPT-3.5 Turbo qui incarne un ancien Windows
 
 ## 🚀 Utilisation
 
-### En ligne
+Le chatbot est désormais **100 % front-end, sans API externe** :
 
-Visitez simplement [https://nuitdelinfo.alexisdechenais.fr/test-chatbot.html](https://nuitdelinfo.alexisdechenais.fr/test-chatbot.html)
+- Il ne fait plus appel à l’API OpenAI et ne nécessite **aucune clé**.
+- Toute la logique et les réponses absurdes sont codées dans `js/chatbruti.js`.
 
 ### En local
 
-1.**Cloner le dépôt**
+1. Cloner le dépôt :
 
 ```powershell
 git clone https://github.com/eferrier81/Nuit-de-l-info-2025.git
 cd Nuit-de-l-info-2025/nird-village
 ```
 
-2.**Configuration**
-
-Créez un fichier `js/config.js` avec votre clé API OpenAI :
-
-```javascript
-const CHATBOT_CONFIG = {
-  OPENAI_API_KEY: 'votre-clé-api-ici',
-  MODEL: 'gpt-3.5-turbo',
-  MAX_TOKENS: 150,
-  TEMPERATURE: 1.2,
-  USE_AI: true,
-  SYSTEM_PROMPT: `[prompt personnalisé]`
-};
-```
-
-3.**Lancer un serveur local**
+2. Lancer un petit serveur statique :
 
 ```powershell
-# Avec Python
 python -m http.server 8000
-
-# Ou avec Node.js
-npx serve .
 ```
 
-4.**Accéder au chatbot**
-Ouvrez `http://localhost:8000/test-chatbot.html`
+3. Ouvrir la page d’accueil :
+
+```text
+http://localhost:8000/index.html
+```
+
+Le widget Chat'rlatan s’affiche en bas à droite et peut être testé directement.
 
 ## 🧪 Page de test
 
-La page `test-chatbot.html` inclut :
-
-- **Tests de configuration** : Vérification de la clé API
-- **Tests de connexion** : Validation de l'API OpenAI
-- **Tests de conversation** : Exemples de questions prédéfinies
-- **Logs en temps réel** : Débogage et suivi des requêtes
+Pour cette version de la Nuit de l’Info, le mode le plus intéressant est celui intégré
+au site principal. Il n’y a plus de page `test-chatbot.html` ni de configuration d’API :
+le comportement absurde est entièrement simulé côté client.
 
 ## 🎯 Exemples de conversations
 
@@ -90,22 +80,24 @@ La page `test-chatbot.html` inclut :
 ## 📁 Structure des fichiers
 
 nird-village/
-├── test-chatbot.html      # Interface de test du chatbot
+├── index.html             # Page principale avec widget Chat'rlatan
+├── pages/
+│   ├── retro.html         # Page rétro avec widget
+│   ├── visualizer.html    # Visualiseur audio avec widget
+│   └── glory-form.html    # Formulaire de la Gloire avec widget
 ├── js/
-│   ├── config.js          # Configuration API (ignoré par Git)
-│   └── chatbruti.js       # Logique du chatbot
-└── README.chatbot.md      # Cette documentation
+│   └── chatbruti.js       # Logique du chatbot (front-only)
+└── readme/README.chatbot.md      # Cette documentation
 
 ## 🔒 Sécurité
 
-⚠️ **Important** : Le fichier `js/config.js` contenant la clé API est exclu du dépôt Git via `.gitignore`. Ne partagez jamais vos clés API publiquement.
+- Aucune clé API ni secret n’est nécessaire : tout tourne côté client.
 
 ## 🛠️ Technologies
 
 - **HTML5/CSS3** : Interface utilisateur
-- **JavaScript Vanilla** : Logique front-end
-- **OpenAI API (GPT-3.5 Turbo)** : Génération des réponses
-- **Surge.sh** : Hébergement statique
+- **JavaScript Vanilla** : Logique front-end (réponses générées côté client)
+- **Hébergement statique** : compatible GitHub Pages / tout hébergeur statique
 
 ## 📝 Configuration avancée
 
@@ -122,10 +114,11 @@ Dans `config.js`, vous pouvez ajuster :
 Le chatbot fait partie du projet plus large **Village Numérique Résistant** qui comprend :
 
 - Page d'accueil interactive (`index.html`)
-- Quiz sur le NIRD (`quiz.html`)
-- Solutions numériques durables (`solutions.html`)
-- Mode rétro (`retro.html`)
-- Visualiseur de données (`visualizer.html`)
+- Quiz sur le NIRD (`pages/quiz.html`)
+- Solutions numériques durables (`pages/solutions.html`)
+- Mode rétro (`pages/retro.html`)
+- Visualiseur audio (`pages/visualizer.html`)
+- Formulaire de la Gloire (`pages/glory-form.html`)
 
 ## 📄 Licence
 
