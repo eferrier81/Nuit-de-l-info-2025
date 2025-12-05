@@ -6,7 +6,9 @@ l’utilisateur grâce à la **Web Audio API**.
 
 ## Où se trouve le visualiseur ?
 
-- Fichier : `nird-village/visualizer.html`
+- Fichier : `nird-village/pages/visualizer.html`
+- Script associé : `nird-village/js/visualizer.js`
+- Fichier audio de démo : `nird-village/media/demo.mp3`
 - URL (GitHub Pages) typique :
   - `https://eferrier81.github.io/Nuit-de-l-info-2025/pages/visualizer.html`
 - Depuis la page d’accueil `index.html`, un bouton **“Voir le Visualiseur Audio”** est disponible
@@ -25,7 +27,7 @@ python -m http.server 8000
 Puis ouvrir dans votre navigateur :
 
 ```text
-http://localhost:8000/visualizer.html
+http://localhost:8000/pages/visualizer.html
 ```
 
 ### En ligne (jury)
@@ -43,6 +45,7 @@ https://eferrier81.github.io/Nuit-de-l-info-2025/pages/visualizer.html
 
 - Un **header** en haut de l’écran propose :
   - Un bouton **“Choisir un fichier audio”** (`input type="file"`) pour charger un MP3/OGG/WAV.
+  - Un bouton **“Utiliser la démo”** qui charge `media/mode_nuit.m4a` (Freestyle exclusif).
   - Un bouton **Lecture / Pause**.
   - Un **slider de volume**.
 - La zone centrale est un `<canvas>` plein écran où s’affiche la visualisation.

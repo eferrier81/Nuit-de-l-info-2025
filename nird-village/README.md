@@ -2,11 +2,16 @@
 
 Landing page de l’application web **"Village Numérique Résistant"** créée pour la Nuit de l’Info 2025 afin de sensibiliser au **Numérique Inclusif, Responsable et Durable (NIRD)**.
 
-## Structure minimale actuelle
+## Structure principale
 
-- `index.html` : page d’accueil interactive avec CTA, stats fictives et modal "Rejoindre NIRD".
-- `css/style.css` : design système vert, responsive, axe accessibilité.
-- `js/main.js` : logique de la landing page (menu mobile, stats, barre de progression, formulaire).
+- `index.html` : page d’accueil interactive avec CTA, stats fictives, FAQ et modal "Rejoindre NIRD".
+- `css/style.css` : design system sombre / néon commun (village, quiz, rétro, chatbot, etc.).
+- `js/main.js` : logique de la landing page (menu mobile, stats, barre de progression, formulaire, FAQ).
+- `pages/retro.html` : console 8‑bit du Village Résistant (mode CRT vert).
+- `pages/visualizer.html` : visualiseur audio Web Audio API + canvas.
+- `pages/glory-form.html` : "Formulaire de la Gloire" (formulaire de contact cérémoniel).
+- `js/visualizer.js` : logique du visualiseur audio.
+- `js/chatbruti.js` : chatbot absurde "Chat’rlatan" intégré aux pages.
 
 ## Lancer en local
 
