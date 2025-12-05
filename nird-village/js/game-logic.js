@@ -28,7 +28,7 @@ let isAwaitingNext = false;
 
 async function initQuiz() {
   try {
-    engine = await QuizEngine.loadFromJSON('data/questions.json');
+    engine = await QuizEngine.loadFromJSON('../data/questions.json');
     const stored = loadStoredProgress();
     if (stored && bestScoreLabel) {
       bestScoreLabel.textContent = `${stored.score} pts - ${stored.badge.label}`;

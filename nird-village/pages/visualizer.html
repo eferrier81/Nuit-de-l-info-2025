@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audio Visualizer - Village Numérique Résistant</title>
+  <meta name="description" content="Visualisation audio rétro-fun basée sur la Web Audio API pour la Nuit de l'Info." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/visualizer.css" />
+</head>
+<body class="visualizer-page">
+  <header class="site-header" aria-label="En-tête principal">
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="../index.html" class="nav__logo" aria-label="Retour à l'accueil">
+        <span class="nav__logo-icon" aria-hidden="true">⚡</span>
+        <span class="nav__logo-text">Village Numérique Résistant</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Ouvrir le menu</span>
+        ☰
+      </button>
+      <div id="nav-menu" class="nav__links">
+        <a href="../index.html#intro" class="nav__link">L'histoire</a>
+        <a href="../index.html#stats" class="nav__link">Village en chiffres</a>
+        <a href="../index.html#actions" class="nav__link">Passer à l'action</a>
+        <a href="retro.html" class="nav__link">Mode rétro NIRD</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="visualizer-header" aria-label="Contrôles du visualiseur audio">
+    <div class="visualizer-header-inner">
+      <div class="visualizer-info">
+        <div class="visualizer-title">
+          <span aria-hidden="true">🔊</span>
+          <span>Visualiseur Audio du Village Résistant</span>
+        </div>
+        <div class="visualizer-subtitle">Choisis un fichier audio et regarde le village vibrer.</div>
+      </div>
+
+      <div class="visualizer-controls">
+        <label class="visualizer-file-label" for="audio-file-input">
+          <span aria-hidden="true">📂</span>
+          <span>Choisir un fichier audio (MP3 recommandé)</span>
+          <input id="audio-file-input" class="visualizer-file-input" type="file" accept="audio/*" />
+        </label>
+
+        <button id="play-pause-btn" class="visualizer-btn" type="button" disabled aria-disabled="true">
+          ▶︎ Lecture
+        </button>
+
+        <div class="visualizer-volume">
+          <span aria-hidden="true">🔉</span>
+          <label for="volume-range" class="sr-only">Volume</label>
+          <input id="volume-range" type="range" min="0" max="1" step="0.01" value="0.8" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="visualizer-main" aria-label="Zone de visualisation audio">
+    <canvas id="visualizer-canvas"></canvas>
+    <div id="visualizer-message" class="visualizer-message">
+      <h1 class="visualizer-message__title">Choisis un fichier audio pour lancer la fête 🎧</h1>
+      <p class="visualizer-message__text">
+        Utilise le bouton <strong>"Choisir un fichier audio"</strong> au-dessus pour charger une piste (MP3, OGG, etc.).
+        Dès que la musique démarre, la visualisation se met à danser façon vieux lecteur multimédia.
+      </p>
+    </div>
+  </main>
+
+  <footer class="visualizer-footer">
+    Compatible avec la Web Audio API. Si rien ne s'affiche, ton navigateur a peut-être besoin d'une mise à jour.
+    Retour au <a href="../index.html">Village Numérique Résistant</a>.
+  </footer>
+
+  <audio id="audio-element" crossorigin="anonymous"></audio>
+
+  <script src="../js/visualizer.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
