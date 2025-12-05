@@ -5,6 +5,9 @@
     const volumeRange = document.getElementById('volume-range');
     const canvas = document.getElementById('visualizer-canvas');
     const messageEl = document.getElementById('visualizer-message');
+    const demoBtn = document.getElementById('demo-btn');
+
+    const DEMO_SRC = '../media/mode_nuit.m4a';
 
     if (!window.AudioContext && !window.webkitAudioContext) {
         messageEl.innerHTML = '<p class="visualizer-message__text">Ton navigateur ne supporte pas la Web Audio API. Essaie une version plus récente de Firefox ou Chrome.</p>';
@@ -95,6 +98,17 @@
     }
 
     draw();
+
+    demoBtn.addEventListener('click', () => {
+        // charge le fichier de démo packagé dans le projet
+        audioEl.src = DEMO_SRC;
+        audioEl.load();
+        messageEl.style.display = 'none';
+        playPauseBtn.disabled = false;
+        playPauseBtn.removeAttribute('aria-disabled');
+        playPauseBtn.textContent = '▶︎ Lecture';
+        isPlaying = false;
+    });
 
     fileInput.addEventListener('change', (event) => {
         const file = event.target.files && event.target.files[0];
