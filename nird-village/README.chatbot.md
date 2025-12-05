@@ -4,7 +4,7 @@
 
 ## 🌐 Démo en ligne
 
-**Site déployé** : [http://sedate-lawyer.surge.sh/](http://sedate-lawyer.surge.sh/)
+**Site déployé** : [https://nuitdelinfo.alexisdechenais.fr/](https://nuitdelinfo.alexisdechenais.fr/)
 
 ## 📖 Description
 
@@ -31,7 +31,7 @@ Chat'rlatan est un chatbot basé sur GPT-3.5 Turbo qui incarne un ancien Windows
 
 ### En ligne
 
-Visitez simplement [http://sedate-lawyer.surge.sh/test-chatbot.html](http://sedate-lawyer.surge.sh/test-chatbot.html)
+Visitez simplement [https://nuitdelinfo.alexisdechenais.fr/test-chatbot.html](https://nuitdelinfo.alexisdechenais.fr/test-chatbot.html)
 
 ### En local
 
