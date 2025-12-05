@@ -35,14 +35,14 @@ Visitez simplement [http://sedate-lawyer.surge.sh/test-chatbot.html](http://seda
 
 ### En local
 
-1. **Cloner le dépôt**
+1.**Cloner le dépôt**
 
 ```powershell
 git clone https://github.com/eferrier81/Nuit-de-l-info-2025.git
 cd Nuit-de-l-info-2025/nird-village
 ```
 
-2. **Configuration**
+2.**Configuration**
 
 Créez un fichier `js/config.js` avec votre clé API OpenAI :
 
@@ -57,7 +57,7 @@ const CHATBOT_CONFIG = {
 };
 ```
 
-3. **Lancer un serveur local**
+3.**Lancer un serveur local**
 
 ```powershell
 # Avec Python
@@ -67,7 +67,7 @@ python -m http.server 8000
 npx serve .
 ```
 
-4. **Accéder au chatbot**
+4.**Accéder au chatbot**
 Ouvrez `http://localhost:8000/test-chatbot.html`
 
 ## 🧪 Page de test
@@ -89,14 +89,12 @@ La page `test-chatbot.html` inclut :
 
 ## 📁 Structure des fichiers
 
-```
 nird-village/
 ├── test-chatbot.html      # Interface de test du chatbot
 ├── js/
 │   ├── config.js          # Configuration API (ignoré par Git)
 │   └── chatbruti.js       # Logique du chatbot
 └── README.chatbot.md      # Cette documentation
-```
 
 ## 🔒 Sécurité
 
