@@ -6,7 +6,6 @@
 
 - Le widget Chat'rlatan est intégré directement dans plusieurs pages du site :
   - `index.html` (page d’accueil)
-  - `pages/retro.html` (mode rétro)
   - `pages/visualizer.html` (visualiseur audio)
   - `pages/glory-form.html` (formulaire de la Gloire)
 
@@ -33,12 +32,6 @@ Chat'rlatan est un chatbot basé sur GPT-3.5 Turbo qui incarne un ancien Windows
 - Reconditionnement d'ordinateurs
 - Écoles et numérique
 
-## 🚀 Utilisation
-
-Le chatbot est désormais **100 % front-end, sans API externe** :
-
-- Il ne fait plus appel à l’API OpenAI et ne nécessite **aucune clé**.
-- Toute la logique et les réponses absurdes sont codées dans `js/chatbruti.js`.
 
 ### En local
 
