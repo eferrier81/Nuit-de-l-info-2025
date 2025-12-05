@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulaire de la Gloire - Village Numérique Résistant</title>
+  <meta name="description"
+    content="Formulaire de contact épique façon cérémonie de remise de prix : vivez le message ‘Félicitations, vous avez gagné !’ comme un moment de gloire." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/glory-form.css" />
+</head>
+
+<body class="glory-body">
+  <div class="glory-wrapper">
+    <a href="../index.html" class="glory-back-link">⬅ Retour au village</a>
+
+    <section class="glory-stage" aria-labelledby="glory-title">
+      <div class="glory-spotlight" aria-hidden="true"></div>
+
+      <header class="glory-header">
+        <div class="glory-title-block">
+          <p class="glory-eyebrow">Nuit de l'Info · Village Numérique Résistant</p>
+          <h1 id="glory-title" class="glory-title">
+            <span class="glory-title-main">Formulaire de la Gloire</span>
+            <span>🏆</span>
+          </h1>
+          <p class="glory-subtitle">
+            Raconte-nous ton exploit numérique, ton idée folle ou ton envie de libérer un établissement.
+            Au bout du clic&nbsp;: une <strong>cérémonie de remise de prix</strong> rien que pour toi.
+          </p>
+        </div>
+        <div class="glory-mini-trophy" aria-hidden="true">
+          <div class="glory-mini-trophy-icon" id="glory-side-trophy">🏆</div>
+          <div>Gloire potentielle : 100%</div>
+        </div>
+      </header>
+
+      <div class="glory-main">
+        <div class="glory-form-card">
+          <form id="glory-form" novalidate>
+            <div class="glory-form-grid">
+              <div class="glory-field">
+                <label class="glory-label" for="glory-name">
+                  Nom
+                  <span class="glory-required">requis</span>
+                </label>
+                <input id="glory-name" name="name" class="glory-input" type="text" required autocomplete="name"
+                  placeholder="Votre nom de héros ou d'héroïne" />
+                <p class="glory-error-text" data-error-for="glory-name"></p>
+              </div>
+
+              <div class="glory-field">
+                <label class="glory-label" for="glory-email">
+                  Email
+                  <span class="glory-required">requis</span>
+                </label>
+                <input id="glory-email" name="email" class="glory-input" type="email" required autocomplete="email"
+                  placeholder="adresse@exemple.fr (pour recevoir ton trophée fictif)" />
+                <p class="glory-error-text" data-error-for="glory-email"></p>
+              </div>
+
+              <div class="glory-field">
+                <label class="glory-label" for="glory-subject">
+                  Sujet
+                  <span class="glory-required">requis</span>
+                </label>
+                <input id="glory-subject" name="subject" class="glory-input" type="text" required
+                  placeholder="Titre de votre exploit (ex. ‘Migration héroïque vers Linux’)." />
+                <p class="glory-error-text" data-error-for="glory-subject"></p>
+              </div>
+
+              <div class="glory-field">
+                <label class="glory-label" for="glory-message">
+                  Message
+                  <span class="glory-required">requis</span>
+                </label>
+                <textarea id="glory-message" name="message" class="glory-textarea" required minlength="30"
+                  placeholder="Racontez votre réussite, votre idée ou votre appel à l'aide… en au moins 30 caractères."></textarea>
+                <p class="glory-error-text" data-error-for="glory-message"></p>
+              </div>
+            </div>
+
+            <p class="glory-hint">
+              Astuce : plus votre message est détaillé, plus la cérémonie de remise de prix sera convaincante (promis,
+              on fait semblant très fort).
+            </p>
+
+            <div class="glory-cta-row">
+              <button type="submit" class="glory-submit-btn">Invoquer la Gloire</button>
+              <p class="glory-footnote">
+                Aucun véritable mail ne sera envoyé : ceci est une <strong>cérémonie de gloire simulée</strong> pour la
+                Nuit de l'Info.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <aside class="glory-side-card" aria-label="Infos bonus sur la gloire">
+          <div class="glory-side-content">
+            <p class="glory-side-title">mode cérémonie activé</p>
+            <p class="glory-side-main">
+              À la validation, les projecteurs s'allument, les confettis tombent et
+              la phrase sacrée apparaît : <strong>« Félicitations, vous avez gagné ! »</strong>
+            </p>
+            <ul class="glory-side-bullets">
+              <li>
+                <span class="glory-side-bullet-icon">✨</span>
+                <span>Formulaire 100 % fonctionnel (validation front, simulation d'envoi).</span>
+              </li>
+              <li>
+                <span class="glory-side-bullet-icon">🎭</span>
+                <span>Univers visuel façon cérémonie de remise de prix.</span>
+              </li>
+              <li>
+                <span class="glory-side-bullet-icon">🕵️‍♀️</span>
+                <span>Étranges rumeurs parlent de secrets cachés sur cette page…</span>
+              </li>
+            </ul>
+            <p class="glory-secret-tag" id="glory-secret-click">(Ne cliquez surtout pas ici. Vraiment.)</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <!-- Overlay de victoire -->
+  <div class="glory-overlay" id="glory-overlay" role="dialog" aria-modal="true" aria-labelledby="glory-overlay-title"
+    aria-hidden="true">
+    <div class="glory-confetti" id="glory-confetti" aria-hidden="true"></div>
+    <div class="glory-popup">
+      <div class="glory-popup-ribbon" aria-hidden="true"></div>
+      <div class="glory-popup-content">
+        <div class="glory-popup-trophy">🏆</div>
+        <h2 id="glory-overlay-title" class="glory-popup-title">Félicitations, vous avez gagné !</h2>
+        <p class="glory-popup-subtitle">
+          Le <strong>Grand Jury du Village Numérique Résistant</strong> vient de délibérer : votre message vient
+          d'obtenir la <em>Gloire Absolue</em> dans la catégorie « Formulaire Épique ».
+        </p>
+        <p class="glory-popup-message" id="glory-popup-message">
+          Votre histoire rejoint désormais la grande légende des établissements qui osent un numérique plus libre,
+          plus responsable et plus fun. Merci pour votre participation héroïque à cette Nuit de l'Info.
+        </p>
+        <button type="button" class="glory-popup-close" id="glory-popup-close">Revenir sur scène</button>
+        <p class="glory-popup-footnote">
+          (Astuce jury : rechargez la page, changez de sujet, tentez quelques combinaisons de touches… on ne sait
+          jamais.)
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../js/glory-form.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,3 @@
-
-
 (function () {
   const messagesEl = document.getElementById('chatbruti-messages');
   const formEl = document.getElementById('chatbruti-form');
